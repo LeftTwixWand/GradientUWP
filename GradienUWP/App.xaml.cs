@@ -1,18 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+using Windows.ApplicationModel.Core;
+using Windows.UI;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 namespace GradienUWP
@@ -39,6 +32,20 @@ namespace GradienUWP
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
+            CustomizeTitleBar();
+
+            void CustomizeTitleBar()
+            {
+                // Draw into the title bar.
+                CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
+
+                // Remove 
+                var title = ApplicationView.GetForCurrentView().TitleBar;
+                title.ButtonBackgroundColor = Colors.Transparent;
+                title.ButtonInactiveBackgroundColor = Colors.Transparent;
+                title.ButtonForegroundColor = (Color)Resources["SystemBaseHighColor"];
+            }
+
             Frame rootFrame = Window.Current.Content as Frame;
 
             // Do not repeat app initialization when the Window already has content,
