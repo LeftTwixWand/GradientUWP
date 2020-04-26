@@ -12,11 +12,11 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
 
-        <Rectangle x:Name="Gradient" Grid.RowSpan="2"/>
+        <Rectangle x:Name="Gradient" Grid.RowSpan="2" />
 
         <controls:DropShadowPanel x:Name="LeftText"
                                   Margin="0,0,80,0"
@@ -31,15 +31,20 @@
                                                  SetInitialValueBeforeDelay="True"
                                                  From="0,0,0"
                                                  To="-40,-120,0"
-                                                 Duration="0:0:0.6"/>
-                <animations:TranslationAnimation Delay="0:0:2"
-                                                 SetInitialValueBeforeDelay="True"
-                                                 From="1"
-                                                 To="0"
-                                                 Duration="0:0:0.6"/>
+                                                 Duration="0:0:0.6" />
+                <animations:OpacityAnimation Delay="0:0:2"
+                                             SetInitialValueBeforeDelay="True"
+                                             From="1"
+                                             To="0"
+                                             Duration="0:0:0.6" />
             </animations:Implicit.HideAnimations>
-            <TextBlock FontSize="32" FontWeight="SemiLight" Foreground="white" Text="Hello"/>
+
+            <TextBlock FontSize="32"
+                       FontWeight="SemiLight"
+                       Foreground="White"
+                       Text="Hello" />
         </controls:DropShadowPanel>
+
         <controls:DropShadowPanel x:Name="RightText"
                                   Grid.Row="1"
                                   Margin="80,0,0,0"
@@ -61,7 +66,10 @@
                                              To="0"
                                              Duration="0:0:0.6" />
             </animations:Implicit.HideAnimations>
-            <TextBlock FontSize="32" FontWeight="SemiLight" Foreground="White" Text="World"/>
+            <TextBlock FontSize="32"
+                       FontWeight="SemiLight"
+                       Foreground="White"
+                       Text="World" />
         </controls:DropShadowPanel>
 
         <controls:DropShadowPanel x:Name="MiddleText"
@@ -85,11 +93,17 @@
                                              To="1"
                                              Duration="0:0:0.6" />
             </animations:Implicit.ShowAnimations>
-            <TextBlock FontSize="44" FontWeight="Bold" Foreground="White">
-                <Run Text="Bullet" />
-                <!--<Run FontSize="20" FontWeight="Normal" Text="+"/>-->
-                <LineBreak/>
-                <Run FontSize="32" FontWeight="SemiLight" Text="Social network"/>
+            <TextBlock FontSize="24"
+                       FontWeight="Bold"
+                       Foreground="White">
+                <Run FontSize="42" Text="Bullet" />
+                <!--<Run FontSize="20"
+                     FontWeight="Normal"
+                     Text="+" />-->
+                <LineBreak />
+                <Run FontSize="32"
+                     FontWeight="SemiLight"
+                     Text="Social network" />
             </TextBlock>
         </controls:DropShadowPanel>
     </Grid>

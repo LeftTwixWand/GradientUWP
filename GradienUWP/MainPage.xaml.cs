@@ -26,7 +26,7 @@ namespace GradienUWP
 
         public MainPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
             var compositor = Window.Current.Compositor;
 
@@ -66,6 +66,7 @@ namespace GradienUWP
 
 
 
+
             var offsetAnimation1 = compositor.CreateScalarKeyFrameAnimation();
             offsetAnimation1.Duration = TimeSpan.FromSeconds(1);
             offsetAnimation1.DelayTime = TimeSpan.FromSeconds(2);
@@ -86,23 +87,22 @@ namespace GradienUWP
             gradientStop3.StartAnimation(nameof(gradientStop1.Color), gradientStop3Animation);
 
             Loaded += async (s, e) =>
-             {
-                 await Task.Yield();
+            {
+                await Task.Yield();
 
-                 LeftText.Visibility = Visibility.Collapsed;
-                 RightText.Visibility = Visibility.Collapsed;
-                 MiddleText.Visibility = Visibility.Visible;
-             };
+                LeftText.Visibility = Visibility.Collapsed;
+                RightText.Visibility = Visibility.Collapsed;
+                MiddleText.Visibility = Visibility.Visible;
+            };
 
             Gradient.SizeChanged += (s, e) =>
-             {
-                 if (e.NewSize != e.PreviousSize)
-                 {
-                     backgroundVisual.Size = e.NewSize.ToVector2();
-                     gradientBrush1.CenterPoint = backgroundVisual.Size / 2;
-                     gradientBrush2.CenterPoint = backgroundVisual.Size / 2;
-                 }
-             };
+            {
+                if (e.NewSize == e.PreviousSize) return;
+
+                backgroundVisual.Size = e.NewSize.ToVector2();
+                gradientBrush1.CenterPoint = backgroundVisual.Size / 2;
+                gradientBrush2.CenterPoint = backgroundVisual.Size / 2;
+            };
         }
     }
 }
